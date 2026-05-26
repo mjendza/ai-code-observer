@@ -1,0 +1,25 @@
+{
+  "name": "claude-code-observer",
+  "version": "1.0.0",
+  "description": "Push Claude Code 5h / 7d usage to a Geekmagic SmallTV clock over LAN.",
+  "type": "module",
+  "bin": {
+    "claude-meter": "bin/claude-code-observer.js"
+  },
+  "scripts": {
+    "start": "node --env-file=.env bin/claude-code-observer.js run",
+    "check": "node --env-file=.env bin/claude-code-observer.js check",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "0.1.65",
+    "commander": "12.1.0",
+    "form-data": "4.0.1",
+    "jpeg-js": "0.4.4",
+    "keytar": "7.9.0"
+  },
+  "license": "MIT"
+}
