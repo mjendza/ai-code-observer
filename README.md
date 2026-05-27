@@ -1,4 +1,4 @@
-# claude-meter
+# ai-code-observer
 
 At-a-glance Claude Code usage on a tiny screen. Pulls live 5-hour and
 weekly percentages from Anthropic's OAuth usage endpoint and pushes
@@ -41,7 +41,7 @@ from a terminal.
 ```
 
 Token refresh is automatic. When the access token is within 60 seconds
-of expiry, claude-meter exchanges the refresh token against
+of expiry, ai-code-observer exchanges the refresh token against
 `/v1/oauth/token` and writes the new pair back to the same store
 where it came from.
 
@@ -54,10 +54,10 @@ where it came from.
   uses Node's built-in `--env-file=.env`, which requires Node 20.6 or
   newer. Install from <https://nodejs.org>.
 - **[Claude Code](https://claude.com/claude-code) CLI installed and
-  signed in.** claude-meter reuses its OAuth tokens — there's no
+  signed in.** ai-code-observer reuses its OAuth tokens — there's no
   separate login. Either Windows Credential Manager
   (`Claude Code-credentials`) or `%USERPROFILE%\.claude\.credentials.json`
-  works; claude-meter checks both in that order.
+  works; ai-code-observer checks both in that order.
 - **A GeeKmagic SmallTV clock** on the same Wi-Fi network. Tested
   against v2 firmware.
 
@@ -69,8 +69,8 @@ win32-x64 — no MSVC build chain needed.
 ## Install
 
 ```powershell
-git clone https://github.com/<you>/claude-meter.git
-cd claude-meter
+git clone https://github.com/mjendza/ai-code-observer.git
+cd ai-code-observer
 npm install
 copy .env.example .env
 notepad .env   # set DEVICE_HOST to the clock's IP
@@ -203,7 +203,7 @@ the binary directly, prefix it with Node's flag, e.g.
 
 ## Privacy
 
-claude-meter talks to exactly two places:
+ai-code-observer talks to exactly two places:
 
 - `api.anthropic.com` — for the usage endpoint and token refresh, using
   *your* Claude Code OAuth tokens.
@@ -220,7 +220,7 @@ Tokens never leave your machine except to Anthropic.
 Run `claude` and sign in, then retry `node bin\claude-code-observer.js check`.
 
 **`[warn] 429 rate limited, sleeping Ns` in logs**
-Anthropic rate-limited the usage endpoint. claude-meter honors the
+Anthropic rate-limited the usage endpoint. ai-code-observer honors the
 `Retry-After` header automatically, so occasional 429s are harmless.
 If they're frequent, raise `--push-interval` (default is 60s).
 
