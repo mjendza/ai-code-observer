@@ -6,10 +6,16 @@ them to a [Geekmagic SmallTV](https://geekmagic.com/) clock over
 your LAN.
 
 Numbers match the Claude app's **Settings → Usage** exactly — both
-come from the same `/api/oauth/usage` endpoint the desktop app uses.
+comes from the same `/api/oauth/usage` endpoint that the desktop app uses.
 
 Node.js implementation targeting **Windows**. Runs in the foreground
 from a terminal.
+
+
+## Why console app and picture generation?
+- No firmware and ESP hardware changes
+- As easy as possible
+- No credentials/session sharing with the device
 
 ---
 
